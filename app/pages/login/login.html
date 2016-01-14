@@ -1,0 +1,30 @@
+
+<ion-navbar *navbar>
+  <ion-title>
+    Sigma
+  </ion-title>
+</ion-navbar>
+
+<ion-content>
+    <p padding>
+        Sigma est le site communautaire des étudiants en école d'ingénieurs ou en université, contacte ton BDE pour savoir si ton établissement fait partie du réseau.
+    </p>
+
+    <form (submit)="login(username,password)">
+        <ion-list>
+            <ion-input floating-label>
+                <ion-label>Adresse email</ion-label>
+                <input type="email" value="" [(ngModel)]="username" autofocus>
+            </ion-input>
+
+            <ion-input floating-label>
+                <ion-label>Mot de passe</ion-label>
+                <input type="password" value="" [(ngModel)]="password" autofocus>
+            </ion-input>
+        </ion-list>
+
+        <div padding>
+            <button block type="submit">Connexion</button>
+        </div>
+    </form>
+</ion-content>
