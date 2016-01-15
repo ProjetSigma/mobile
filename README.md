@@ -1,6 +1,11 @@
 Sigma - Mobile
 ==============
 
+## Licence
+<a href="https://github.com/ProjetSigma/mobile/blob/master/LICENSE.md">
+<img src="https://img.shields.io/badge/license-GNU%20Affero%20General%20Public%20License%20%28AGPL%29%20v3.0-blue.svg" alt="license" />
+</a>
+
 ## Installation
 Il est nécessaire de désinstaller Ionic et Cordova si ceux-ci sont déjà installés.
 ```
