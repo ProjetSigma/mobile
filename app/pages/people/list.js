@@ -1,5 +1,7 @@
 import {Page} from 'ionic/ionic';
 import {UserService} from '../../services/users/user-service';
+import {NavController} from 'ionic/ionic';
+import {PeoplePersonPage} from './person';
 
 
 @Page({
@@ -7,10 +9,15 @@ import {UserService} from '../../services/users/user-service';
     providers: [UserService],
 })
 export class PeopleList {
-    constructor(user_service: UserService) {
+    constructor(nav: NavController, user_service: UserService) {
         this.user_service = user_service;
+        this.nav = nav;
         this.users = [];
         this.getUsers();
+    }
+
+    showUser(user) {
+        this.nav.push(PeoplePersonPage, {user: user});
     }
 
     getUsers() {

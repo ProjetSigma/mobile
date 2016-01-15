@@ -81,7 +81,7 @@ class RestRequest {
 })
 export class RestService {
     constructor(http:Http, auth:AuthService) {
-        this.base_url = 'http://localhost:8000/';
+        this.base_url = 'http://ns399940.ip-5-196-68.eu/';
         this.http = http;
         this.auth = auth;
         this.resource = '';

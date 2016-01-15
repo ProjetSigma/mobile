@@ -25,7 +25,7 @@ export class AuthService {
         headers.append('Authorization', 'Basic ' + btoa(this.clientId+':'+this.clientSecret));
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        var request = this.http.post('http://localhost:8000/o/token/',
+        var request = this.http.post('http://ns399940.ip-5-196-68.eu/o/token/',
             params,
             {headers:headers}
         ).share();
