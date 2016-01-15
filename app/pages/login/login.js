@@ -1,7 +1,7 @@
 import {Page} from 'ionic/ionic';
 import {NavController} from 'ionic/ionic';
 import {HomePage} from '../../home';
-import {AuthService} from '../../services/users/auth-service'
+import {AuthService} from '../../services/auth-service'
 
 
 @Page({

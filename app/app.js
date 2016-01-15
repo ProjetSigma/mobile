@@ -1,12 +1,13 @@
 import {App, Platform} from 'ionic/ionic';
 import {LoginPage} from './pages/login/login';
-import {AuthService} from './services/users/auth-service'
+import {AuthService} from './services/auth-service'
+import {RestService} from './services/rest-service'
 import 'rxjs/Rx';
 
 
 @App({
     templateUrl: 'build/landing.html',
-    providers: [AuthService]
+    providers: [AuthService, RestService]
 })
 export class Sigma {
     constructor(platform: Platform) {
