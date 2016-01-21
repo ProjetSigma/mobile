@@ -15,6 +15,7 @@ export class Sigma {
 
         platform.ready().then(() => {
             // Do any necessary cordova or native calls here now that the platform is ready
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
         });
     }
 }
