@@ -5,8 +5,9 @@
 </ion-navbar>
 
 <ion-content class="page2">
+    <ion-searchbar [(ngModel)]="searchUser" (input)="updateUsers($event)"></ion-searchbar>
     <ion-list>
-        <ion-item *ngFor="#user of users" (click)="showUser(user)">
+        <ion-item *ngFor="#user of displayedUsers" (click)="showUser(user)">
             {{ user.firstname }} {{ user.lastname }}
         </ion-item>
     </ion-list>

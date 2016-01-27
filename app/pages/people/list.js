@@ -12,8 +12,10 @@ export class PeopleList {
     constructor(nav: NavController, user_service: UserService) {
         this.user_service = user_service;
         this.nav = nav;
-        this.users = [];
+        this.allUsers = [];
+        this.displayedUsers = [];
         this.getUsers();
+        this.searchUser = '';
     }
 
     showUser(user) {
@@ -22,6 +24,26 @@ export class PeopleList {
 
     getUsers() {
         this.user_service.getUsers()
-            .subscribe(res => this.users = res.json());
+            .subscribe(res => {
+                this.allUsers = res.json();
+                this.displayedUsers = this.allUsers;
+            });
+    }
+
+    updateUsers(searchBar) {
+        this.displayedUsers = this.allUsers;
+
+        var q = searchBar.value;
+        if (q.trim() == '') {
+            return;
+        }
+        q = q.toLowerCase();
+
+        this.displayedUsers = this.allUsers.filter((user) => {
+            if (user.firstname.toLowerCase().indexOf(q) > -1 || user.lastname.toLowerCase().indexOf(q) > -1) {
+                return true;
+            }
+            return false;
+        });
     }
 }
