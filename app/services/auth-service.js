@@ -43,11 +43,11 @@ export class AuthService {
 
     logout() {
         this.accessToken = undefined;
-        localStorage.setItem('accessToken', '');
+        localStorage.removeItem('accessToken');
     }
 
     isAuthenticated() {
-        return this.accessToken !== undefined;
+        return this.accessToken;
     }
 
     appendAuth(header:Headers) {

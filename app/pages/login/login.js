@@ -9,6 +9,9 @@ import {AuthService} from '../../services/auth-service'
 })
 export class LoginPage {
     constructor(nav: NavController, auth: AuthService) {
+        if (auth.isAuthenticated()) {
+            nav.push(HomePage);
+        }
         this.login = function(username, password) {
             auth.authentificate(username, password).subscribe(
                 res => {
