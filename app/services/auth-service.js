@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, EventEmitter} from 'angular2/core';
 import {Http, HTTP_PROVIDERS, Headers, Response} from 'angular2/http';
 
 @Component({
@@ -16,6 +16,7 @@ export class AuthService {
             this.accessToken = token;
             this.isConnected = true;
         }
+        this.loggedOut = new EventEmitter();
     }
 
     authentificate(username,password) {
@@ -44,6 +45,7 @@ export class AuthService {
     logout() {
         this.accessToken = undefined;
         localStorage.removeItem('accessToken');
+        this.loggedOut.emit(true);
     }
 
     isAuthenticated() {

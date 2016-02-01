@@ -11,7 +11,6 @@ export class AnnoncesListAll {
     constructor(nav: NavController, auth: AuthService) {
         this.logout = function() {
             auth.logout();
-            window.location='/';
         }
     }
 }
