@@ -12,15 +12,15 @@
 
     <form (submit)="login(username,password)">
         <ion-list>
-            <ion-input floating-label>
+            <ion-item floating>
                 <ion-label>Adresse email</ion-label>
-                <input type="email" value="" [(ngModel)]="username">
-            </ion-input>
+                <ion-input type="email" value="" [(ngModel)]="username"></ion-input>
+            </ion-item>
 
-            <ion-input floating-label>
+            <ion-item floating>
                 <ion-label>Mot de passe</ion-label>
-                <input type="password" value="" [(ngModel)]="password">
-            </ion-input>
+                <ion-input type="password" value="" [(ngModel)]="password"></ion-input>
+            </ion-item>
         </ion-list>
 
         <div padding>
