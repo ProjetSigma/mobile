@@ -20,12 +20,16 @@
             <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
         </ion-card-content> -->
 
-        <ion-item>
+        <ion-item *ngIf="user.phone">
             <button primary clear item-left>
-                <ion-icon name="call"></ion-icon>
+                <a href="tel:{{ user.phone }}">
+                    <ion-icon name="call"></ion-icon>
+                </a>
             </button>
             <button primary clear item-left>
-                <ion-icon name="text"></ion-icon>
+                <a href="sms:{{ user.phone }}">
+                    <ion-icon name="text"></ion-icon>
+                </a>
             </button>
             <ion-note item-right>
                 {{ user.phone }}
@@ -33,7 +37,9 @@
         </ion-item>
         <ion-item>
             <button primary clear item-left>
-                <ion-icon name="mail"></ion-icon>
+                <a href="mailto:{{ user.email }}">
+                    <ion-icon name="mail"></ion-icon>
+                </a>
             </button>
             <ion-note item-right>
                 {{ user.email }}
