@@ -1,7 +1,7 @@
-import {Page} from 'ionic/ionic';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
 
-
-@Page({
+@Component({
   templateUrl: 'build/pages/chat/talks.html'
 })
 export class ChatTalks {

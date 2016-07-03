@@ -1,19 +1,22 @@
-import {Page} from 'ionic/ionic';
-import {NavController} from 'ionic/ionic';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
 import {HomePage} from '../../home';
-import {AuthService} from '../../services/auth-service'
+import {APIService} from '../../shared/services/api-service'
 
 
-@Page({
+@Component({
     templateUrl: 'build/pages/login/login.html'
 })
 export class LoginPage {
-    constructor(nav: NavController, auth: AuthService) {
-        if (auth.isAuthenticated()) {
+    private login:any;
+
+    constructor(nav: NavController, api: APIService) {
+        if (api.isAuthenticated()) {
+            api.buildStore();
             nav.push(HomePage);
         }
         this.login = function(username, password) {
-            auth.authentificate(username, password).subscribe(
+            api.login(username, password).subscribe(
                 res => {
                     nav.push(HomePage);
                 },

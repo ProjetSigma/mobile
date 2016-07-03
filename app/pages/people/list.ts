@@ -1,16 +1,27 @@
-import {Page} from 'ionic/ionic';
-import {UserService} from '../../services/users/user-service';
-import {NavController} from 'ionic/ionic';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
+import {APIService} from '../../shared/services/api-service';
+import {User} from '../../shared/resources/user';
 import {PeoplePersonPage} from './person';
 
 
-@Page({
+@Component({
     templateUrl: 'build/pages/people/list.html',
-    providers: [UserService],
+    // providers: [UserService],
 })
 export class PeopleList {
-    constructor(nav: NavController, user_service: UserService) {
-        this.user_service = user_service;
+    private allUsers: User[] = [];
+    private displayedUsers: User[] = [];
+    private searchUser: string = '';
+    private nav: any;
+
+    getUsers() {
+        this.api.store.findAll('user').then(res => {
+            this.allUsers = res;
+            this.displayedUsers = res;
+        });
+    }
+    constructor(nav: NavController, public api: APIService) {
         this.nav = nav;
         this.allUsers = [];
         this.displayedUsers = [];
@@ -22,18 +33,10 @@ export class PeopleList {
         this.nav.push(PeoplePersonPage, {user: user});
     }
 
-    getUsers() {
-        this.user_service.getUsers()
-            .subscribe(res => {
-                this.allUsers = res.json();
-                this.displayedUsers = this.allUsers;
-            });
-    }
-
     updateUsers(searchBar) {
         this.displayedUsers = this.allUsers;
 
-        var q = searchBar.value;
+        var q = searchBar.target.value;
         if (q.trim() == '') {
             return;
         }
