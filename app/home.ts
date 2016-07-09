@@ -5,6 +5,7 @@ import {PeopleList} from './pages/people/list';
 import {ChatTalks} from './pages/chat/talks';
 import {AuthService} from './shared/services/auth-service';
 import {LoginPage} from './pages/login/login';
+import {GroupList} from './pages/groups/list';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class HomePage {
     private tab1Root: any;
     private tab2Root: any;
     private tab3Root: any;
+    private tab4Root: any;
 
     constructor(nav: NavController, auth: AuthService) {
         // this tells the tabs component which Pages
@@ -21,7 +23,7 @@ export class HomePage {
         this.tab1Root = AnnoncesListAll;
         this.tab2Root = PeopleList;
         this.tab3Root = ChatTalks;
-
+        this.tab4Root = GroupList
         // auth.loggedOut.subscribe(() => nav.push(LoginPage));
     }
 }

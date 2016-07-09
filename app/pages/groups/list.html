@@ -1,0 +1,23 @@
+<ion-navbar *navbar>
+  <ion-title>
+    Groupes
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="page4">
+    <ion-searchbar [(ngModel)]="searchGroup" (input)="updateGroups($event)"></ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor="let group of displayedGroups" (click)="showGroup(group)">
+            <h3> {{ group.name }} </h3>
+            <p item-right *ngIf="group.memberships">
+                {{ group.members_count }}
+                <ion-icon name="people"></ion-icon>
+            </p>
+            <p *ngIf="group.resp_group &&
+            group.resp_group.name &&
+            group.resp_group.id !== group.id" >
+                {{ group.resp_group.name }}
+            </p>
+        </ion-item>
+    </ion-list>
+</ion-content>
