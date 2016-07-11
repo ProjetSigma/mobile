@@ -8,17 +8,11 @@
     <ion-card>
         <ion-item>
             <ion-avatar item-left>
-                <!-- <img src="img/marty-avatar.png"> -->
+                <img src="{{ user.photo.file }}">
             </ion-avatar>
             <h2>{{ user.firstname }} {{ user.lastname }}</h2>
             <p>École polytechnique</p>
         </ion-item>
-
-        <!-- <img src="img/advance-card-bttf.png"> -->
-
-        <!-- <ion-card-content>
-            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-        </ion-card-content> -->
 
         <ion-item *ngIf="user.phone">
             <button primary clear item-left>
@@ -31,7 +25,7 @@
                     <ion-icon name="text"></ion-icon>
                 </a>
             </button>
-            <ion-note item-right>
+            <ion-note>
                 {{ user.phone }}
             </ion-note>
         </ion-item>
