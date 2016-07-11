@@ -92,7 +92,7 @@ export class APIService {
 
     logout() {
         this.auth.logout();
-        // location.reload();
+        location.reload();
     };
 
     isAuthenticated() {
