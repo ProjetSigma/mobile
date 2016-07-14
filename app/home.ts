@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {AnnoncesListAll} from './pages/annonces/list-all';
-import {PeopleList} from './pages/people/list';
+import {PeopleList} from './pages/people/directory';
 import {ChatTalks} from './pages/chat/talks';
 import {AuthService} from './shared/services/auth-service';
 import {LoginPage} from './pages/login/login';
-import {GroupList} from './pages/groups/list';
+import {GroupList} from './pages/groups/directory';
 
 
 @Component({

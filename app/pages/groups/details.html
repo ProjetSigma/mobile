@@ -7,7 +7,19 @@
 <ion-content>
     <ion-card>
         <ion-item>
-            <h2>{{ group.name }}</h2>
+            <h1>
+                <ion-note *ngIf="group.private">
+                    <ion-icon name="eye-off"></ion-icon>
+                </ion-note>
+                <ion-note *ngIf="!group.private">
+                    <ion-icon name="eye"></ion-icon>
+                </ion-note>
+                {{ group.name }}
+                <ion-note *ngIf="group.resp_group && group.resp_group.name &&
+                !(group.resp_group.name === group.name)">
+                    | {{ group.resp_group.name }}
+                </ion-note>
+            </h1>
             <div *ngIf="group.members_count">
                     <ion-icon name="people"></ion-icon>
                     {{ group.members_count }}
@@ -18,12 +30,13 @@
         </p>
     </ion-card>
     <ion-card>
-      <h3> Membres du groupes </h3>
+      <h2> Membres du groupes </h2>
       <div *ngFor="let membership of group.memberships">
-      <div *ngIf="membership && membership.user && membership.user.id">
-          <user-inline-display [user]="membership.user">
-          </user-inline-display>
+          <ion-list>
+              <div *ngIf="membership && membership.user && membership.user.id">
+                <user-item [user]="membership.user"></user-item>
+              </div>
+          </ion-list>
       </div>
-  </div>
     </ion-card>
 </ion-content>

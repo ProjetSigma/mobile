@@ -1,0 +1,38 @@
+<ion-item-sliding>
+    <ion-item (click)="showUser(user)">
+        <ion-avatar item-left *ngIf="user.photo">
+            <img src="{{ user.photo.file }}">
+        </ion-avatar>
+        <ion-avatar item-left *ngIf="!user.photo">
+        </ion-avatar>
+          {{ user.firstname }} {{ user.lastname }}
+    </ion-item>
+    <ion-item-options>
+        <div *ngIf="user.phone">
+            <button primary clear>
+                <a href="tel:{{ user.phone }}">
+                    <ion-icon name="call"></ion-icon>
+                    Appel
+                </a>
+            </button>
+            <button primary clear>
+                <a href="sms:{{ user.phone }}">
+                    <ion-icon name="text"></ion-icon>
+                    SMS
+                </a>
+            </button>
+        </div>
+        <button primary clear>
+            <a href="mailto:{{ user.email }}">
+                <ion-icon name="mail"></ion-icon>
+                Mail
+            </a>
+        </button>
+        <button primary clear>
+            <a href="#">
+                <ion-icon name="chatboxes"></ion-icon>
+                Chat
+            </a>
+        </button>
+    </ion-item-options>
+</ion-item-sliding>

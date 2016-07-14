@@ -7,8 +7,10 @@
 <ion-content>
     <ion-card>
         <ion-item>
-            <ion-avatar item-left>
+            <ion-avatar item-left *ngIf="user.photo">
                 <img src="{{ user.photo.file }}">
+            </ion-avatar>
+            <ion-avatar item-left *ngIf="!user.photo">
             </ion-avatar>
             <h2>{{ user.firstname }} {{ user.lastname }}</h2>
             <p>École polytechnique</p>
@@ -40,22 +42,26 @@
             </ion-note>
         </ion-item>
     </ion-card>
-    <p> Groupes auxquels appartient {{ user.firstname }} </p>
-    <ion-list *ngFor="let membership of user.memberships">
-        <ion-item *ngIf="membership && membership.group && membership.group.id">
-          <h3> {{ membership.group.name }} </h3>
-          <p item-right *ngIf="membership.group.memberships">
-              {{ membership.group.members_count }}
-              <ion-icon name="people"></ion-icon>
-          </p>
-          <p *ngIf="membership.group.resp_group &&
-          membership.group.resp_group.name &&
-          membership.group.resp_group.id !== membership.group.id" >
-              {{ membership.group.resp_group.name }}
-          </p>
-        </ion-item>
-    </ion-list>
-    <div *ngIf="user.memberships && user.memberships.length === 0">
-        {{ user.firstname }} n'est dans aucun groupe
-    </div>
+    <ion-card>
+    <h2> Groupes auxquels appartient {{ user.firstname }} </h2>
+        <ion-list>
+            <div *ngFor="let membership of user.memberships" (click)="showGroup(membership.group)">
+                <ion-item *ngIf="membership && membership.group && membership.group.id">
+                    <h3> {{ membership.group.name }} </h3>
+                    <p item-right *ngIf="membership.group.memberships">
+                        {{ membership.group.members_count }}
+                        <ion-icon name="people"></ion-icon>
+                    </p>
+                    <p *ngIf="membership.group.resp_group &&
+                    membership.group.resp_group.name &&
+                    membership.group.resp_group.id !== membership.group.id" >
+                        {{ membership.group.resp_group.name }}
+                    </p>
+                </ion-item>
+            </div>
+        </ion-list>
+        <div *ngIf="user.memberships && user.memberships.length === 0">
+            {{ user.firstname }} n'est dans aucun groupe
+        </div>
+    </ion-card>
 </ion-content>

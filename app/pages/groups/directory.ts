@@ -6,7 +6,7 @@ import {OneGroupPage} from './details';
 
 
 @Component({
-    templateUrl: 'build/pages/groups/list.html',
+    templateUrl: 'build/pages/groups/directory.html',
     // providers: [GroupService],
 })
 export class GroupList {

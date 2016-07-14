@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {APIService} from '../../shared/services/api-service';
 import {User} from '../../shared/resources/user';
-import {PeoplePersonPage} from './person';
-
+import {UserItem} from './item';
 
 @Component({
-    templateUrl: 'build/pages/people/list.html',
+    templateUrl: 'build/pages/people/directory.html',
+    directives: [UserItem],
     // providers: [UserService],
 })
 export class PeopleList {
@@ -27,10 +27,6 @@ export class PeopleList {
         this.displayedUsers = [];
         this.getUsers();
         this.searchUser = '';
-    }
-
-    showUser(user) {
-        this.nav.push(PeoplePersonPage, {user: user});
     }
 
     updateUsers(searchBar) {

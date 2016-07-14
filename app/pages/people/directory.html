@@ -1,0 +1,14 @@
+<ion-navbar *navbar>
+  <ion-title>
+    Annuaire
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="page2">
+    <ion-searchbar [(ngModel)]="searchUser" (input)="updateUsers($event)"></ion-searchbar>
+    <ion-list>
+        <div *ngFor="let user of displayedUsers">
+              <user-item [user]="user"></user-item>
+        </div>
+    </ion-list>
+</ion-content>
